@@ -1,0 +1,5 @@
+#!/bin/bash
+
+title=$(youtube-dl -e $1)
+youtube-dl $1 --skip-download --write-auto-sub -o "$title"
+sed -i -e 's/<[^>]*>//g' "$title".en.vtt
